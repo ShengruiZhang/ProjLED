@@ -15,7 +15,7 @@ typedef unsigned char uchar;
 
 #define MAX_10 0x03ff
 
-#define INCREMENT 20
+#define INCREMENT 10
 
 #define DIR_NONE 0x0
 

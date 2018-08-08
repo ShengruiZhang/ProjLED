@@ -481,15 +481,15 @@ END GROUP
  .debug_frame   0x0000009c       0x24 PWM.o
  .debug_frame   0x000000c0       0x44 Rotary.o
 
-.debug_str      0x00000000      0x44b
+.debug_str      0x00000000      0x448
  *(.debug_str)
  .debug_str     0x00000000      0x208 C:/Program Files (x86)/Atmel/Studio/7.0/Packs/atmel/ATmega_DFP/1.2.150/gcc/dev/atmega328p/avr5/crtatmega328p.o
- .debug_str     0x00000208      0x207 main.o
-                                0x23b (size before relaxing)
- .debug_str     0x0000040f        0xb PWM.o
-                                0x153 (size before relaxing)
- .debug_str     0x0000041a       0x31 Rotary.o
-                                0x1a3 (size before relaxing)
+ .debug_str     0x00000208      0x204 main.o
+                                0x238 (size before relaxing)
+ .debug_str     0x0000040c        0xb PWM.o
+                                0x150 (size before relaxing)
+ .debug_str     0x00000417       0x31 Rotary.o
+                                0x1a0 (size before relaxing)
 
 .debug_loc      0x00000000      0x445
  *(.debug_loc)
