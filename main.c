@@ -73,7 +73,7 @@ int main(void)
 	DDRB |= (1 << DDB1);
 	DDRB |= (1 << DDB2);
 	PORTB |= (1 << PORTB1) | (1 << PORTB2);
-	_delay_ms(5000);
+	_delay_ms(2000);
 
 	// Press the button to turn on
 	init_button();
