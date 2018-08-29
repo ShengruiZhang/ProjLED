@@ -73,7 +73,7 @@ unsigned char rotary_process()
 void init_button()
 {
 	// PD4 as input
-	DDRD |= (0 << DDD4);
+	DDRD &= (0 << DDD4);
 
 	// Enable Pull-up on PD4
 	PORTD |= (1 << PORTD4);

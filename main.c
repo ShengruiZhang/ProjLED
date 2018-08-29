@@ -12,6 +12,7 @@ static uint Mode_Blink(uint times);
 
 uint power_on = 0;
 
+// Handle the button on encoder
 ISR(PCINT2_vect)
 {
 	if (mode == PWM_Rotary)
@@ -30,9 +31,10 @@ ISR(PCINT2_vect)
 			}
 
 			// Set to max if it is already max out
-			if (DutyCycle > MAX_10)
+			if (DutyCycle >= MAX_10)
 			{
 				DutyCycle = MAX_10 - 5;
+				// Bit smaller than the MAX
 			}
 		}
 		else if (result == DIR_CCW) {
@@ -69,16 +71,19 @@ ISR(PCINT2_vect)
 
 int main(void)
 {
-	// Set MOSFET to high to turn off LED
+	// Set P-MOSFET to high to turn off LED
 	DDRB |= (1 << DDB1);
 	DDRB |= (1 << DDB2);
 	PORTB |= (1 << PORTB1) | (1 << PORTB2);
 	_delay_ms(2000);
 
 	// Press the button to turn on
+	//
 	init_button();
 	// Set pin 5 as output, status LED
 	DDRB |= (1 << DDB5);
+
+	// Counting loop for debouncing
 	while (1)
 	{
 		if (!(PIND & (1 << PIND4)))
@@ -113,6 +118,7 @@ int main(void)
 
 	_delay_ms(1000);
 
+	// Main loop
 	while(1)
 	{
 		if (PinState())
@@ -198,6 +204,10 @@ static uint PinState()
 		{
 			_delay_ms(90);
 			// Reset counter
+			//
+			// Mysterious point here, the thing stops
+			// working as soon as reset the counter to zero
+			// every time reaches the debounce threshold
 			//counter = 0;
 			return Button_Pressed;
 		}
