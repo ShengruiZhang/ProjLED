@@ -1,7 +1,7 @@
 # ProjLED
 Electronic glow stick for concerts, live shows, or your parties
 
-Arduino Uno is used to make it the smallest possible.
+Arduino Nano is used to make it the smallest possible.
 
 # Features
 
